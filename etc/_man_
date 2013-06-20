@@ -1,0 +1,21 @@
+.TH __FILE__ 1 __FILE__\-0.0.1
+.SH NAME
+__FILE__ \- !DESCRIPTION!
+.SH SYNOPSIS
+.B __FILE__ !USAGE!
+.SH DESCRIPTION
+.B __FILE__
+!WHAT IT DOES!
+.SH OPTIONS
+none
+.SH EXAMPLES
+.B __FILE__ 
+!INVOCATIONS!
+.SH FILES
+.SH SEE ALSO
+.SH BUGS
+Probably.
+.SH LICENSE
+Copyright __YEAR__ 
+.sp
+You may use this software however you like.
