@@ -8,14 +8,27 @@ __FILE__ \- !DESCRIPTION!
 .B __FILE__
 !WHAT IT DOES!
 .SH OPTIONS
-none
+none !OR!
+.TP 5
+--help 
+Print a brief usage message.
 .SH EXAMPLES
+.LP
 .B __FILE__ 
 !INVOCATIONS!
+.SH EXIT STATUS
+exits non-zero on error.
+.SH AUTHOR
+__ME__
+.SH HISTORY
 .SH FILES
-.SH SEE ALSO
 .SH BUGS
 Probably.
+.SH SEE ALSO
+.TP
+.BR __LANGUAGE__(1)
+.TP
+.IR http://rubygems.org/gems/__FILE__
 .SH LICENSE
 Copyright __YEAR__  __ME__
 .sp
