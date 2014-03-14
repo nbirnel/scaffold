@@ -2,11 +2,12 @@
 
 # produce a directory for a new script to live in,
 # with a nice default Makefile and scraps of a man page.
+ETC='/usr/local/etc/scaffold'
 
 for i in "$@"; do
     mv $i $i.bak
     mkdir $i
     mv $i.bak $i/$i
-    sed 's/__FILE__/'$i'/g' /usr/local/etc/scaffold/_Makefile_  >$i/Makefile
-    sed 's/__FILE__/'$i'/g; s/__YEAR__/'$(date '+%Y')'/g' /usr/local/etc/scaffold/_man_ >$i/$i.1
+    sed 's/__FILE__/'$i'/g' "$ETC/Makefile.template"  >$i/Makefile
+    sed 's/__FILE__/'$i'/g; s/__YEAR__/'$(date '+%Y')'/g' "$ETC/manpage.template" >$i/$i.1
 done
