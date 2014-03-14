@@ -1,0 +1,12 @@
+generic:
+  whoami?
+  date
+  man page
+  README template
+  git init
+  Makefile / Rakefile
+
+specify 'type'
+each type is a subprogram (which ought to be in shell, still)
+search system, then local, for defaults
+
