@@ -1,23 +1,22 @@
+PROG = __PROG__
 PREFIX = /usr/local
 
-install :: __FILE__ __FILE__.1
+install : $(PROG) $(PROG).1
 	mkdir -p ${DESTDIR}${PREFIX}/bin
-	cp -f __FILE__ ${DESTDIR}${PREFIX}/bin
-	chmod 755 ${DESTDIR}${PREFIX}/bin/__FILE__
+	cp -f $(PROG) ${DESTDIR}${PREFIX}/bin
+	chmod 755 ${DESTDIR}${PREFIX}/bin/$(PROG)
 	mkdir -p ${DESTDIR}${PREFIX}/man/man1
-	cp -f __FILE__.1 ${DESTDIR}${PREFIX}/man/man1
-	chmod 644 ${DESTDIR}${PREFIX}/man/man1/__FILE__.1
+	cp -f $(PROG).1 ${DESTDIR}${PREFIX}/man/man1
+	chmod 644 ${DESTDIR}${PREFIX}/man/man1/$(PROG).1
+	mkdir -p ${DESTDIR}${PREFIX}/etc/${PROG}
+	cp -f etc/* ${DESTDIR}${PREFIX}/etc/${PROG}
+	chmod 644 ${DESTDIR}${PREFIX}/etc/${PROG}/*
 
-pdf :: __FILE__.1
-	man -t ./__FILE__.1 > __FILE__.ps
-	ps2pdf __FILE__.ps
-
-print-pdf :: __FILE__.pdf
-	cygstart -p __FILE__.pdf
+uninstall ::
+	rm -f ${DESTDIR}${PREFIX}/bin/$(PROG)
+	rm -f ${DESTDIR}${PREFIX}/man/man1/$(PROG).1
+	rm -rf ${DESTDIR}${PREFIX}/etc/${PROG}
 
 clean ::
-	rm -r __FILE__.ps
 
-remove ::
-	rm -f ${DESTDIR}${PREFIX}/bin/__FILE__
-	rm -f ${DESTDIR}${PREFIX}/man/man1/__FILE__.1
+.PHONY : uninstall install clean

@@ -17,4 +17,4 @@ uninstall ::
 	rm -f ${DESTDIR}${PREFIX}/man/man1/$(PROG).1
 	rm -rf ${DESTDIR}${PREFIX}/etc/${PROG}
 
-.PHONY : deinstall install 
+.PHONY : uninstall install 
