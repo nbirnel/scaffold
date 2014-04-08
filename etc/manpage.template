@@ -17,7 +17,7 @@ Print a brief usage message.
 .B __FILE__ 
 !INVOCATIONS!
 .SH EXIT STATUS
-exits non-zero on error.
+Exits non-zero on error.
 .SH AUTHOR
 __ME__
 .SH HISTORY
@@ -28,7 +28,7 @@ Probably.
 .TP
 .BR __LANGUAGE__(1)
 .TP
-.IR http://rubygems.org/gems/__FILE__
+.IR __WEBSITE__
 .SH LICENSE
 Copyright __YEAR__  __ME__
 .sp
