@@ -3,11 +3,17 @@
 # produce a directory for a new script to live in,
 # with a nice default Makefile and scraps of a man page.
 ETC='/usr/local/etc/scaffold'
+VERSION='0.0.0'
+
+ME="$(grep "$(whoami | sed 's,\\,\\\\,g')" /etc/passwd |
+      awk -F: '{split($5, a, ","); print a[1]}')"
 
 for i in "$@"; do
     mv $i $i.bak
     mkdir $i
     mv $i.bak $i/$i
     sed 's/__FILE__/'$i'/g' "$ETC/Makefile.template"  >$i/Makefile
-    sed 's/__FILE__/'$i'/g; s/__YEAR__/'$(date '+%Y')'/g' "$ETC/manpage.template" >$i/$i.1
+    sed 's/__FILE__/'$i'/g' "$ETC/manpage.template" |\
+    sed 's/__YEAR__/'$(date '+%Y')'/g' |\
+    sed 's/__ME__/'"$ME"'/g'  >$i/$i.1
 done
