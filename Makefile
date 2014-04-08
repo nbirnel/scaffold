@@ -17,4 +17,22 @@ uninstall ::
 	rm -f ${DESTDIR}${PREFIX}/man/man1/$(PROG).1
 	rm -rf ${DESTDIR}${PREFIX}/etc/${PROG}
 
-.PHONY : uninstall install 
+clean ::
+	rm -r $(PROG).ps
+
+clean-all ::
+	rm -r $(PROG).pdf
+
+push :
+	git push origin master
+
+pull :
+	git pull origin master
+
+readme :: README.md
+	git commit -m'update $?' $?
+
+README.md :: ${PROG}.1
+	groff -tman -Thtml $? | sed '/<html/,$$!d; /<style/,/<\/style>/d' >$@
+
+.PHONY : install uninstall clean clean-all push pull readme
